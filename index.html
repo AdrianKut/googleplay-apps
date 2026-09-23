@@ -1,135 +1,331 @@
 <!DOCTYPE html>
 <html lang="en">
+
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
 
     <title>96Games</title>
-    <link rel="icon" type="image/x-icon" href="logo.png">
+
+    <link rel="icon" type="image/png" href="logo.png">
+
     <meta name="description"
-          content="Official website for mobile applications developed by Aixen.">
+          content="Official website of 96Games. Mobile games available on Google Play.">
 
     <style>
         * {
             box-sizing: border-box;
         }
 
+        html {
+            scroll-behavior: smooth;
+        }
+
         body {
             margin: 0;
-            font-family: Arial, Helvetica, sans-serif;
-            background: #f5f5f5;
-            color: #222;
-            line-height: 1.6;
+            font-family: -apple-system, BlinkMacSystemFont, "Segoe UI",
+                         Roboto, Helvetica, Arial, sans-serif;
+
+            background:
+                radial-gradient(circle at top, #252b48 0%, #11131f 45%, #090a10 100%);
+
+            color: #f5f5f5;
+            min-height: 100vh;
         }
 
         .container {
+            width: 100%;
             max-width: 900px;
-            margin: 60px auto;
-            padding: 40px;
+            margin: 0 auto;
+            padding: 60px 24px 40px;
         }
+
+        /* HEADER */
 
         header {
             text-align: center;
-            margin-bottom: 50px;
+            margin-bottom: 55px;
+        }
+
+        .logo {
+            width: 150px;
+            max-width: 45%;
+            height: auto;
+            display: block;
+            margin: 0 auto 22px;
+            filter: drop-shadow(0 10px 25px rgba(0, 0, 0, 0.35));
         }
 
         h1 {
+            margin: 0;
             font-size: 42px;
-            margin-bottom: 10px;
+            font-weight: 700;
+            letter-spacing: -1px;
         }
 
-        header p {
-            color: #666;
-            font-size: 18px;
+        .subtitle {
+            margin: 12px auto 0;
+            color: #aeb3c7;
+            font-size: 17px;
+            max-width: 500px;
+        }
+
+        /* APPS */
+
+        .apps {
+            display: grid;
+            grid-template-columns: repeat(2, 1fr);
+            gap: 22px;
         }
 
         .app {
-            background: #fff;
+            background: rgba(255, 255, 255, 0.07);
+
+            border: 1px solid rgba(255, 255, 255, 0.09);
+
+            border-radius: 20px;
             padding: 30px;
-            margin-bottom: 25px;
-            border-radius: 14px;
-            box-shadow: 0 4px 18px rgba(0, 0, 0, 0.07);
+
+            box-shadow:
+                0 15px 35px rgba(0, 0, 0, 0.2);
+
+            backdrop-filter: blur(10px);
+
+            transition:
+                transform 0.25s ease,
+                border-color 0.25s ease,
+                background 0.25s ease;
+        }
+
+        .app:hover {
+            transform: translateY(-5px);
+
+            border-color: rgba(255, 255, 255, 0.18);
+
+            background: rgba(255, 255, 255, 0.10);
         }
 
         .app h2 {
-            margin-top: 0;
+            margin: 0 0 8px;
+            font-size: 26px;
         }
+
+        .app-description {
+            margin: 0;
+            min-height: 48px;
+            color: #aeb3c7;
+            font-size: 15px;
+        }
+
+        /* BUTTONS */
 
         .links {
-            margin-top: 20px;
+            display: flex;
+            flex-wrap: wrap;
+            gap: 10px;
+            margin-top: 25px;
         }
 
-        .links a {
-            display: inline-block;
-            margin-right: 15px;
-            margin-bottom: 10px;
-            color: #1769e0;
+        .button {
+            display: inline-flex;
+            align-items: center;
+            justify-content: center;
+
+            min-height: 44px;
+
+            padding: 11px 17px;
+
+            border-radius: 10px;
+
             text-decoration: none;
-            font-weight: bold;
+            font-size: 14px;
+            font-weight: 600;
+
+            transition:
+                transform 0.2s ease,
+                opacity 0.2s ease,
+                background 0.2s ease;
         }
 
-        .links a:hover {
-            text-decoration: underline;
+        .button:hover {
+            transform: translateY(-2px);
         }
+
+        .google-play {
+            background: #ffffff;
+            color: #111;
+        }
+
+        .google-play:hover {
+            background: #e9e9e9;
+        }
+
+        .privacy {
+            background: rgba(255, 255, 255, 0.08);
+            color: #ffffff;
+
+            border: 1px solid rgba(255, 255, 255, 0.12);
+        }
+
+        .privacy:hover {
+            background: rgba(255, 255, 255, 0.14);
+        }
+
+        /* FOOTER */
 
         footer {
-            margin-top: 50px;
-            padding-top: 25px;
-            border-top: 1px solid #ddd;
+            margin-top: 60px;
+
+            padding-top: 28px;
+
+            border-top: 1px solid rgba(255, 255, 255, 0.08);
+
             text-align: center;
-            color: #666;
+
+            color: #858a9d;
+
             font-size: 14px;
         }
 
-        footer a {
-            color: #1769e0;
+        footer p {
+            margin: 7px 0;
         }
+
+        footer a {
+            color: #cbd0e5;
+            text-decoration: none;
+        }
+
+        footer a:hover {
+            color: #ffffff;
+            text-decoration: underline;
+        }
+
+        /* MOBILE */
+
+        @media (max-width: 650px) {
+
+            .container {
+                padding: 40px 18px 30px;
+            }
+
+            header {
+                margin-bottom: 35px;
+            }
+
+            .logo {
+                width: 120px;
+            }
+
+            h1 {
+                font-size: 34px;
+            }
+
+            .subtitle {
+                font-size: 16px;
+            }
+
+            .apps {
+                grid-template-columns: 1fr;
+            }
+
+            .app {
+                padding: 25px;
+            }
+
+            .links {
+                flex-direction: column;
+            }
+
+            .button {
+                width: 100%;
+            }
+        }
+
     </style>
+
 </head>
 
 <body>
 
 <div class="container">
-<center><img src="logo.png" width="25%"></img></center> 
-    <header>      
-        <p>
-            Mobile applications available on Google Play.
-        </p>    
+
+    <header>
+
+        <img src="logo.png"
+             alt="96Games logo"
+             class="logo">
+
+        <h1>96Games</h1>
+
+        <p class="subtitle">
+            Independent mobile games available on Google Play.
+        </p>
+
     </header>
 
-    <main>
+
+    <main class="apps">
+
+        <!-- PONG -->
 
         <section class="app">
+
             <h2>Pong</h2>
 
+            <p class="app-description">
+                A modern take on the classic Pong experience for Android.
+            </p>
+
             <div class="links">
-                <a href="https://play.google.com/store/apps/details?id=com.AdrianKut.PogPong"
-                   target="_blank"
-                   rel="noopener noreferrer">
-                    Google Play
+
+                <a
+                    class="button google-play"
+                    href="https://play.google.com/store/apps/details?id=com.AdrianKut.PogPong"
+                    target="_blank"
+                    rel="noopener noreferrer">
+                    ▶ Google Play
                 </a>
 
-                <a href="./PongPolicy/">
+                <a
+                    class="button privacy"
+                    href="./PongPolicy/">
                     Privacy Policy
                 </a>
+
             </div>
+
         </section>
 
 
+        <!-- LABYRINTH HD -->
+
         <section class="app">
+
             <h2>Labyrinth HD</h2>
 
+            <p class="app-description">
+                A mobile labyrinth game designed for Android devices.
+            </p>
+
             <div class="links">
-                <a href="https://play.google.com/store/apps/details?id=com.AdrianKut.Labyrinth"
-                   target="_blank"
-                   rel="noopener noreferrer">
-                    Google Play
+
+                <a
+                    class="button google-play"
+                    href="https://play.google.com/store/apps/details?id=com.AdrianKut.Labyrinth"
+                    target="_blank"
+                    rel="noopener noreferrer">
+                    ▶ Google Play
                 </a>
 
-                <a href="./LabyrinthPolicy/">
+                <a
+                    class="button privacy"
+                    href="./LabyrinthPolicy/">
                     Privacy Policy
                 </a>
+
             </div>
+
         </section>
 
     </main>
@@ -145,7 +341,7 @@
         </p>
 
         <p>
-            © 2026 Aixen. All rights reserved.
+            © 2026 96Games. All rights reserved.
         </p>
 
     </footer>
@@ -153,4 +349,5 @@
 </div>
 
 </body>
+
 </html>
